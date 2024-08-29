@@ -23,7 +23,7 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
           <Button
             key={i}
             size="icon"
-            className={`transition-colors duration-300 border border-transparent dark:border-tokena-dark-gray ${
+            className={`transition-colors duration-300 border border-transparent dark:border-tokena-dark-gray max-xs:h-8 max-xs:w-8 ${
               i === currentPage
                 ? "bg-tokena-blue text-tokena-white !border-transparent"
                 : "bg-transparent text-tokena-blue"
@@ -37,7 +37,15 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
         i === currentPage - pageRange - 1 ||
         i === currentPage + pageRange + 1
       ) {
-        pages.push(<span key={i}>...</span>);
+        pages.push(
+          <Button
+            key={i}
+            size="icon"
+            className="bg-transparent text-tokena-blue dark:border-tokena-dark-gray"
+          >
+            ...
+          </Button>
+        );
       }
     }
 
@@ -45,17 +53,17 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
   };
 
   return (
-    <div className="flex items-center justify-between p-4 border-t border-tokena-gray dark:border-tokena-dark/25">
-      <span>
+    <div className="flex items-center justify-between gap-3 p-4 border-t border-tokena-gray dark:border-tokena-dark/25 max-sm:flex-col">
+      <span className="hidden lg:block">
         <span className="text-tokena-dark text-sm font-medium">
           Showing {table.getState().pagination.pageIndex + 1} to{" "}
           {table.getPageCount()} of {table.getFilteredRowModel().rows.length}{" "}
           results
         </span>
       </span>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 max-sm:gap-1.5">
         <Button
-          className="bg-transparent text-tokena-dark disabled:text-tokena-dark-gray border border-tokena-dark-gray"
+          className="bg-transparent text-tokena-dark disabled:text-tokena-dark-gray border border-tokena-dark-gray max-xs:h-8 max-xs:w-8"
           size="icon"
           variant="ghost"
           onClick={() => table.previousPage()}
@@ -65,7 +73,7 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
         </Button>
         {renderPageNumbers()}
         <Button
-          className="bg-transparent text-tokena-dark disabled:text-tokena-dark-gray border border-tokena-dark-gray"
+          className="bg-transparent text-tokena-dark disabled:text-tokena-dark-gray border border-tokena-dark-gray max-xs:h-8 max-xs:w-8"
           size="icon"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
@@ -73,7 +81,16 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
           <ChevronRight className="w-5 h-5" />
         </Button>
       </div>
-      <span>Row</span>
+      <div className="w-full flex items-center justify-between">
+        <span className="block lg:hidden">
+          <span className="text-tokena-dark text-xs sm:text-sm font-medium">
+            Showing {table.getState().pagination.pageIndex + 1} to{" "}
+            {table.getPageCount()} of {table.getFilteredRowModel().rows.length}{" "}
+            results
+          </span>
+        </span>
+        <span>Row</span>
+      </div>
     </div>
   );
 };
