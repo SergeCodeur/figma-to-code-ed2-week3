@@ -13,7 +13,7 @@ const Sidebar = () => {
       ref={sidebarRef}
       className={`${
         isSidebarOpen ? "max-lg:-translate-x-[0%]" : "max-lg:-translate-x-full"
-      } max-lg:fixed z-10 bg-background flex flex-col items-center justify-between w-[240px] h-screen py-4 px-3.5 border-r border-tokena-gray dark:border-border transition-transform duration-300 overflow-y-auto`}
+      } max-lg:fixed z-10 bg-background flex flex-col items-center justify-between w-[240px] h-screen py-4 px-3.5 border-r border-tokena-gray dark:border-border transition-transform duration-300 overflow-y-auto overflow-x-hidden`}
     >
       <div className="space-y-9">
         <Image
