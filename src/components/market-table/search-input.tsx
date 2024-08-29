@@ -10,7 +10,7 @@ const SearchInput = ({ value, onChange }: SearchInputProps) => {
         placeholder="Search crypto.."
         value={value}
         onChange={onChange}
-        className="h-10 w-full lg:w-[312px] pl-7 text-tokena-dark-gray rounded-xl"
+        className="h-10 w-full lg:w-[312px] pl-7 text-tokena-dark-gray dark:border-tokena-dark-gray dark:text-tokena-dark-gray dark:placeholder:tokena-dark-gray rounded-xl"
       />
     </div>
   );
