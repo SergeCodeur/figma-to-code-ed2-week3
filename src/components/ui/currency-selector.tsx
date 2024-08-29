@@ -30,12 +30,12 @@ const CurrencySelector = () => {
           variant="icon-button"
           role="combobox"
           aria-expanded={open}
-          className="w-[89px] h-9"
+          className="w-[89px] h-9 text-xs dark:border-tokena-dark-gray dark:text-tokena-light-gray"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
             : "USD"}
-          <ChevronUpDown className="ml-2shrink-0 opacity-50" />
+          <ChevronUpDown />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0 bg-background">
