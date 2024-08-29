@@ -10,7 +10,7 @@ const Sparkline: React.FC<SparklineProps> = ({ data, isPositiveChange }) => {
 
   return (
     <LineChart
-      width={70}
+      width={100}
       height={30}
       data={chartData}
       margin={{
