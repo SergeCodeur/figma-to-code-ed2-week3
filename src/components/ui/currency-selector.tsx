@@ -30,7 +30,7 @@ const CurrencySelector = () => {
           variant="icon-button"
           role="combobox"
           aria-expanded={open}
-          className="w-[89px] h-9 text-xs dark:border-tokena-dark-gray dark:text-tokena-light-gray"
+          className="w-[89px] max-sm:w-20 h-9 text-xs max-sm:text-xxs dark:border-tokena-dark-gray dark:text-tokena-light-gray"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
