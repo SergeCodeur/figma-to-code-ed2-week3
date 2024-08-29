@@ -11,16 +11,20 @@ const TrendingCoinsList: React.FC = () => {
     return <div>{error}</div>;
   }
 
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 xs:grid-cols-2 xl:grid-cols-4 max-lg:grid-rows-1 gap-1.5">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <TrendingCardSkeleton key={index} />
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 max-lg:grid-rows-1 gap-1.5">
+    <div className="grid grid-cols-1 xs:grid-cols-2 xl:grid-cols-4 max-lg:grid-rows-1 gap-1.5">
       {data?.coins.map((coin) => (
-        <>
-          {isLoading ? (
-            <TrendingCardSkeleton />
-          ) : (
-            <TrendingCard key={coin.item.id} coin={coin.item} />
-          )}
-        </>
+        <TrendingCard key={coin.item.id} coin={coin.item} />
       ))}
     </div>
   );
