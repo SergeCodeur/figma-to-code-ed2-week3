@@ -36,7 +36,7 @@ const CoinOverview = () => {
     <div
       className={`${
         isOverviewOpen ? "translate-x-0" : "translate-x-full"
-      } bg-background w-[496px] space-y-[26px] overflow-y-auto p-5 fixed right-0 top-0 h-screen z-20 transition-transform duration-300 ease-linear`}
+      } bg-background w-[315px] xs:w-[365px] md:w-[496px] space-y-[26px] overflow-y-auto p-5 fixed right-0 top-0 h-screen z-20 transition-transform duration-300 ease-linear`}
     >
       {isLoading ? (
         <CoinOverviewSkeleton />
@@ -105,43 +105,45 @@ const CoinOverview = () => {
                 </Badge>
               </li>
               <li className="flex items-center justify-between">
-                <span className="text-sm font-medium">Market cap</span>
-                <span className="font-medium text-tokena-dark-gray text-sm dark:text-tokena-gray">
+                <span className="text-xs xs:text-sm font-medium">
+                  Market cap
+                </span>
+                <span className="font-medium text-tokena-dark-gray text-xs xs:text-sm dark:text-tokena-gray">
                   {formatCurrency(
                     Number(coinDetails.market_data.market_cap.usd)
                   )}
                 </span>
               </li>
               <li className="flex items-center justify-between">
-                <span className="text-sm font-medium text-tokena-dark text dark:text-tokena-light-gray">
+                <span className="text-xs xs:text-sm font-medium text-tokena-dark text dark:text-tokena-light-gray">
                   Circulating supply
                 </span>
-                <span className="font-medium text-tokena-dark-gray text-sm dark:text-tokena-gray">
+                <span className="font-medium text-tokena-dark-gray text-xs xs:text-sm dark:text-tokena-gray">
                   {coinDetails.market_data.circulating_supply}
                 </span>
               </li>
               <li className="flex items-center justify-between">
-                <span className="text-sm font-medium text-tokena-dark text dark:text-tokena-light-gray">
+                <span className="text-xs xs:text-sm font-medium text-tokena-dark text dark:text-tokena-light-gray">
                   24 Hour High
                 </span>
-                <span className="font-medium text-tokena-dark-gray text-sm dark:text-tokena-gray">
+                <span className="font-medium text-tokena-dark-gray text-xs xs:text-sm dark:text-tokena-gray">
                   {formatCurrency(Number(coinDetails.market_data.high_24h.usd))}
                 </span>
               </li>
               <li className="flex items-center justify-between">
-                <span className="text-sm font-medium text-tokena-dark text dark:text-tokena-light-gray">
+                <span className="text-xs xs:text-sm font-medium text-tokena-dark text dark:text-tokena-light-gray">
                   24 Hour Low
                 </span>
-                <span className="font-medium text-tokena-dark-gray text-sm dark:text-tokena-gray">
+                <span className="font-medium text-tokena-dark-gray text-xs xs:text-sm dark:text-tokena-gray">
                   {formatCurrency(Number(coinDetails.market_data.low_24h.usd))}
                 </span>
               </li>
             </ul>
-            <div>
-              <h3 className="text-sm font-semibold text-tokena-dark text dark:text-tokena-light-gray">
+            <div className="space-y-[9px]">
+              <h3 className="text-xs xs:text-sm font-semibold text-tokena-dark text dark:text-tokena-light-gray">
                 Description
               </h3>
-              <p className="text-xs text-tokena-dark-gray dark:text-tokena-gray">
+              <p className="text-xs text-tokena-dark-gray coin-description-text dark:text-tokena-gray">
                 {coinDetails.description.en}
               </p>
             </div>
