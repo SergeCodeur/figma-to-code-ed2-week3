@@ -94,4 +94,8 @@
     @apply bg-background text-foreground;
     @apply font-mona;
   }
+  .coin-description-text {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
 }
