@@ -18,11 +18,11 @@ const TopNav = () => {
         >
           <Menu />
         </Button>
-        <div className="w-[175px]">
-          <h2 className="text-tokena-dark dark:text-tokena-light-gray text-sm font-semibold">
+        <div className="lg:w-[175px]">
+          <h2 className="text-tokena-dark dark:text-tokena-light-gray text-xs md:text-sm font-semibold">
             Dashboard
           </h2>
-          <h3 className="text-tokena-dark-gray dark:text-tokena-gray text-xs font-medium">
+          <h3 className="text-tokena-dark-gray dark:text-tokena-gray text-xxs md:text-xs font-medium max-xs:w-24">
             Welcome back, John Doe
           </h3>
         </div>
