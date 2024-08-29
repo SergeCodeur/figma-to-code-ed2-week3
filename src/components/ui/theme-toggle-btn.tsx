@@ -30,6 +30,7 @@ const ThemeToggleIcon = () => {
       size="icon-xs"
       variant="icon-button"
       onClick={toggleTheme}
+      className="dark:text-tokena-gray"
       aria-label={
         theme === "light" ? "Switch to dark mode" : "Switch to light mode"
       }
