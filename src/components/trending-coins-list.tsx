@@ -12,7 +12,7 @@ const TrendingCoinsList: React.FC = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 max-lg:grid-rows-1 gap-1.5">
+    <div className="grid grid-cols-2 xl:grid-cols-4 max-lg:grid-rows-1 gap-1.5">
       {data?.coins.map((coin) => (
         <>
           {isLoading ? (
