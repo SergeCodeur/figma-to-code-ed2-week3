@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from "@/assets/icons";
 import { Table } from "@tanstack/react-table";
 import { Button } from "../ui/button";
+import RowSelector from "../ui/row-selector";
 
 interface PaginationProps<TData> {
   table: Table<TData>;
@@ -81,7 +82,7 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
           <ChevronRight className="w-5 h-5" />
         </Button>
       </div>
-      <div className="w-full flex items-center justify-between">
+      <div className="max-sm:w-full flex items-center justify-between">
         <span className="block lg:hidden">
           <span className="text-tokena-dark text-xs sm:text-sm font-medium">
             Showing {table.getState().pagination.pageIndex + 1} to{" "}
@@ -89,7 +90,7 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
             results
           </span>
         </span>
-        <span>Row</span>
+        <RowSelector />
       </div>
     </div>
   );
