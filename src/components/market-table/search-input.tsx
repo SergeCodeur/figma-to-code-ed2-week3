@@ -4,7 +4,7 @@ import { Input } from "../ui/input";
 
 const SearchInput = ({ value, onChange }: SearchInputProps) => {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Search className="absolute top-1/2 left-2 -translate-y-1/2 text-tokena-dark-gray" />
       <Input
         placeholder="Search crypto.."
