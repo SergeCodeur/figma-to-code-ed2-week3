@@ -5,7 +5,7 @@ import { Button } from "./button";
 import { Command, CommandGroup, CommandItem, CommandList } from "./command";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 
-const frameworks = [
+const currencys = [
   {
     value: "usd",
     label: "USD",
@@ -33,7 +33,7 @@ const CurrencySelector = () => {
           className="w-[89px] max-sm:w-20 h-9 text-xs max-sm:text-xxs dark:border-tokena-dark-gray dark:text-tokena-light-gray"
         >
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
+            ? currencys.find((currency) => currency.value === value)?.label
             : "USD"}
           <ChevronUpDown />
         </Button>
@@ -42,16 +42,16 @@ const CurrencySelector = () => {
         <Command>
           <CommandList>
             <CommandGroup>
-              {frameworks.map((framework) => (
+              {currencys.map((currency) => (
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  key={currency.value}
+                  value={currency.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue);
                     setOpen(false);
                   }}
                 >
-                  {framework.label}
+                  {currency.label}
                 </CommandItem>
               ))}
             </CommandGroup>
