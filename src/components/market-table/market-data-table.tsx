@@ -4,6 +4,7 @@ import { Ellipsis } from "@/assets/icons";
 import { Table } from "@/components/ui/table";
 import useCryptoMarketData from "@/hooks/use-fetch-crypto-market";
 import { useTableState } from "@/hooks/use-market-table-state";
+import SelectCategories from "../select-categories";
 import { Button } from "../ui/button";
 import TableBodyComponent from "./market-table-body";
 import TableHeaderComponent from "./market-table-header";
@@ -28,14 +29,14 @@ export function MarketDataTable<TData, TValue>({
 
   return (
     <div className="mt-[38px]">
-      <div className="flex w-full justify-between items-center">
+      <div className="flex w-full justify-between gap-3 items-center max-sm:flex-col">
         <SearchInput
           value={
             (table.getColumn("crypto_info")?.getFilterValue() as string) ?? ""
           }
           onChange={handleSearchChange}
         />
-        <span>Catégorie</span>
+        <SelectCategories />
       </div>
       <div className="mt-8 border border-tokena-gray dark:border-tokena-dark-gray rounded-xxl">
         <div className="flex justify-between items-center p-4">
