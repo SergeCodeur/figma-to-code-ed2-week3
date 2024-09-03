@@ -26,7 +26,7 @@ const NewsFeed = () => {
       {numArticles < CryptoNewsData.length && (
         <div className="w-full flex justify-center items-center">
           <Button
-            className="bg-tokena-light-gray border border-tokena-gray font-medium text-tokena-dark rounded-full"
+            className="bg-tokena-light-gray border border-tokena-gray font-medium text-tokena-dark dark:text-tokena-light-gray dark:bg-tokena-dark-blue-2 rounded-full"
             onClick={handleLoadMore}
           >
             Load More
