@@ -1,11 +1,24 @@
 import { Comment, Heart } from "@/assets/icons";
-import icon from "@/assets/images/icons-new.svg";
 import { cn } from "@/lib/utils";
+import { NewsCardProps } from "@/types";
 import Image from "next/image";
 import * as React from "react";
 
-export const NewsCard = React.forwardRef<HTMLDivElement>(
-  ({ ...props }, ref) => (
+export const NewsCard = React.forwardRef<HTMLDivElement, NewsCardProps>(
+  (
+    {
+      icon,
+      source,
+      timeAgo,
+      image,
+      title,
+      description,
+      likes,
+      comments,
+      ...props
+    },
+    ref
+  ) => (
     <div
       ref={ref}
       className={cn(
@@ -17,36 +30,37 @@ export const NewsCard = React.forwardRef<HTMLDivElement>(
         <Image src={icon} alt={`Icon`} width={24} height={24} />
         <div>
           <h3 className="text-tokena-dark dark:text-tokena-white text-xs font-semibold">
-            CoinMarketCap
+            {source}
           </h3>
           <span className="text-tokena-dark-gray dark:text-tokena-light-gray text-xs block">
-            News - 7 hours ago
+            News - {timeAgo}
           </span>
         </div>
       </div>
       <div className="rounded-xl overflow-hidden w-full h-[194px] bg-tokena-light-gray dark:bg-[#1D1D1D]/70">
-        {/* <Image
-          className="w-full object-cover"
-          src={image}
-          alt="image"
-          width={259}
-          height={194}
-        /> */}
+        {image && (
+          <Image
+            className="w-full object-cover"
+            src={image}
+            alt="image"
+            width={259}
+            height={194}
+          />
+        )}
       </div>
       <div>
         <h3 className="italic text-xs font-semibold mb-1.5 dark:text-tokena-gray">
-          Ethereum&apos;s Merge Coming and the Stakes Couldn&apos;t Be Higher
+          {title}
         </h3>
-        <p className="text-xs font-medium text-tokena-dark-gray dark:text-tokena-white">
-          The most important upgrade in blockchain history is slated for August.
-          And the outcome of Ethe....
+        <p className="text-xs font-medium text-tokena-dark-gray dark:text-tokena-white line-clamp-3">
+          {description}
         </p>
         <div className="flex gap-2.5 mt-2">
-          <span className="flex items-center gap-1">
-            <Heart /> <span className="font-medium">5</span>
+          <span className="flex items-center gap-1 text-xs">
+            <Heart /> <span className="font-medium">{likes}</span>
           </span>
-          <span className="flex items-center gap-1">
-            <Comment /> <span className="font-medium">5</span>
+          <span className="flex items-center gap-1 text-xs">
+            <Comment /> <span className="font-medium">{comments}</span>
           </span>
         </div>
       </div>
