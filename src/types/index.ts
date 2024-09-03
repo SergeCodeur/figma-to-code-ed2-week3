@@ -21,19 +21,6 @@ export type BalanceCardProps = {
   amount: string;
 };
 
-// // Trending card type
-// export type TrendingCardProps = {
-//   className?: string;
-//   icon: string;
-//   iconWidth?: number;
-//   iconHeight?: number;
-//   coinTitle: string;
-//   coinSubtitle: string;
-//   percentageChange: string;
-//   value: string;
-//   marketCap: string;
-// };
-
 // Icon type
 export interface IconProps extends SVGProps<SVGSVGElement> {
   width?: number;
@@ -59,6 +46,7 @@ export type CryptoMarketDataProps = {
   };
 };
 
+// Crypto details tyoe
 export interface CoinDetailsProps {
   description: {
     en: string;
@@ -110,4 +98,15 @@ export interface ToggleOverviewProps {
   isOverviewOpen: boolean;
   setIsOverviewOpen: (isOpen: boolean) => void;
   setSelectedCoinId: (id: string | null) => void;
+}
+
+export interface NewsCardProps {
+  icon: string;
+  source: string;
+  timeAgo: string;
+  image?: string;
+  title: string;
+  description: string;
+  likes: number;
+  comments: number;
 }
